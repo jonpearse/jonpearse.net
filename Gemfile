@@ -20,7 +20,7 @@ gem "jbuilder", "~> 2.11"
 gem "image_processing", "~> 1.12"
 gem "simple_ar_localizer", "~> 1.0"
 gem "browser", "~> 5.3.0"
-gem "rouge", "~> 3.26.0"
+gem "rouge", "~> 3.26.1"
 
 # Use scenic to make stats easier
 gem "scenic", "~> 1.5.4"
