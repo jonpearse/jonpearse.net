@@ -22,10 +22,10 @@ const processDirectory = sDir =>
     .pipe( svgstore() )
     .pipe( svgmin({
       plugins: [
-        { removeDoctype: true },
+        { name: 'preset-default' },
         { cleanupIDs: false },
-        { removeStyleElement: true },
-        { removeTitle: true },
+        'removeStyleElement',
+        'removeTitle',
         { removeAttrs: { attrs: [ 'style', 'stroke.*', 'class' ]}}
       ]
     }))
