@@ -1,3 +1,5 @@
+require 'digest'
+
 module StatsHelper
 
   def aggregate
@@ -52,13 +54,15 @@ module StatsHelper
     end
 
     def self.create_pageview( raw_stat, session )
+      url = raw_stat.url_path[0..127]
 
       v = Stats::Pageview.create(
         session_id:   session.id,
-        url:          raw_stat.url_path[0..127],
+        url:          url,
         content_type: raw_stat.content_type,
         content_id:   raw_stat.content_id,
-        recorded_at:  raw_stat.recorded_at
+        recorded_at:  raw_stat.recorded_at,
+        ident:        Digest::MD5.hexdigest("#{session.id}#{url}")
       )
 
     end

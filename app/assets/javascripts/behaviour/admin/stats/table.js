@@ -30,6 +30,7 @@ function StatsTable( elRoot, options )
 
       // b. td
       elRow.appendChild( create( 'td', { colspan: 2, class: '-empty' }, 'There were no visitors in this period' ));
+      elRoot.classList.remove( '-loading' );
       return;
     }
 
@@ -59,6 +60,7 @@ function StatsTable( elRoot, options )
       elTd.appendChild( create( 'small', {}, `${oRow.percent}%` ));
 
     });
+    elRoot.classList.remove( '-loading' );
   }
 
   /** Constructor logic. */
@@ -72,7 +74,11 @@ function StatsTable( elRoot, options )
     }
 
     // 2. bind on date range changing
-    elRoot.addEventListener( 'statsRangeChanged', ev => ajax( options.endpoint, ev.detail ).then( updateTable ));
+    elRoot.addEventListener( 'statsRangeChanged', ev =>
+    {
+      elRoot.classList.add( '-loading' );
+      ajax( options.endpoint, ev.detail ).then( updateTable )
+    });
 
   }());
 }
