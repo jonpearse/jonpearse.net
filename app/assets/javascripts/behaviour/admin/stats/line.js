@@ -70,6 +70,7 @@ function LineGraph( elRoot, options )
 
     // 4. empty state
     elRoot.classList.toggle( '-empty', ( meta.maxVisitors === 0 ));
+    elRoot.classList.remove( '-loading' );
   }
 
   /** Constructor logic. */
@@ -83,7 +84,11 @@ function LineGraph( elRoot, options )
     }
 
     // 2. bind on date range changing
-    elRoot.addEventListener( 'statsRangeChanged', ev => ajax( options.endpoint, ev.detail ).then( redraw ));
+    elRoot.addEventListener( 'statsRangeChanged', ev =>
+    {
+      elRoot.classList.add( '-loading' );
+      ajax( options.endpoint, ev.detail ).then( redraw )
+    });
 
   }());
 }
