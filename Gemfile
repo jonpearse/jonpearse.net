@@ -6,7 +6,7 @@ ruby "2.7.1"
 # Basic stuff
 gem "rails", "~> 6.0.4"
 gem "mysql2", "~> 0.5.3"
-gem "haml-rails", "~> 2.0"
+gem "haml-rails", "~> 2.0.0"
 
 # Use devise for user management
 gem "devise", "~> 4.8"
