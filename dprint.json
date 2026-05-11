@@ -1,0 +1,38 @@
+{
+	"incremental": false,
+	"markup": {
+		"printWidth": 120,
+		"useTabs": true,
+		"styleIndent": true
+	},
+	"json": {
+		"useTabs": true
+	},
+	"typescript": {
+		"arrowFunction.useParentheses": "preferNone",
+		"bracePosition": "nextLine",
+		"quoteStyle": "preferSingle",
+		"spaceAround": true,
+		"spaceSurroundingProperties": true,
+		"useTabs": true,
+		"nextControlFlowPosition": "nextLine",
+		"jsx.quoteStyle": "preferDouble"
+	},
+	"malva": {
+		"useTabs": true,
+		"singleLineBlockThreshold": 1,
+		"preferSingleLine": false,
+		"omitNumberLeadingZero": true
+	},
+	"excludes": [
+		"**/node_modules",
+		"**/*-lock.json"
+	],
+	"plugins": [
+		"https://plugins.dprint.dev/json-0.21.3.wasm",
+		"https://plugins.dprint.dev/markdown-0.21.1.wasm",
+		"https://plugins.dprint.dev/typescript-0.96.0.wasm",
+		"https://plugins.dprint.dev/g-plane/malva-v0.15.3.wasm",
+		"https://plugins.dprint.dev/g-plane/markup_fmt-v0.27.1.wasm"
+	]
+}
