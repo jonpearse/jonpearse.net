@@ -1,3 +1,4 @@
+# --- Automatically added by yarn ---
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
@@ -15,3 +16,7 @@ node_modules
 
 #!.yarn/cache
 .pnp.*
+
+# --- Local stuff ---
+
+.build

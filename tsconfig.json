@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"strict": true,
+		"jsx": "react-jsx",
+		"jsxImportSource": "@kitajs/html",
+		"paths": {
+			"@/*": ["./11ty/lib/*"]
+		}
+	},
+	"include": [
+		"**/*.ts",
+		"**/*.tsx"
+	]
+}
