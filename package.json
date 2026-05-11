@@ -1,0 +1,11 @@
+{
+	"name": "jonpearse.net",
+	"version": "3.0.0",
+	"author": {
+		"name": "Jon Pearse",
+		"email": "hello@jonmpearse.net"
+	},
+	"homepage": "https://jonpearse.net/",
+	"packageManager": "yarn@4.12.0",
+	"type": "module"
+}
