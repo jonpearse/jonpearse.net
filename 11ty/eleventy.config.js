@@ -5,6 +5,8 @@ import { fileURLToPath } from 'url';
 import 'tsx/esm';
 import EleventyVitePlugin from '@11ty/eleventy-plugin-vite';
 
+import bindTransforms from '@/transforms/index';
+
 /** --- PATHS --- */
 
 const ROOT = dirname( dirname( fileURLToPath( import.meta.url ) ) );
@@ -43,6 +45,10 @@ export default async config =>
 		[ASSETS]: 'a',
 	} );
 
+	// Bind transforms
+	bindModule( config, 'addTransform', bindTransforms );
+
+	// … and return a config
 	return {
 		dir: {
 			input: './content',
@@ -53,4 +59,15 @@ export default async config =>
 			layouts: relative( CONTENT, resolve( ELEVENTY, './layouts' ) ),
 		},
 	};
+};
+
+/**
+ * Utility function to bing thigs to the 11ty config object
+ */
+const bindModule = ( config, configHook, moduleFn ) =>
+{
+	const bindFn = ( bindAs, bindFn ) => config[configHook]( bindAs, bindFn );
+	const bindAll = obj => Object.keys( obj ).forEach( k => bindFn( k, obj[k] ) );
+
+	moduleFn( { bind: bindFn, bindAll } );
 };
