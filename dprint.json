@@ -26,7 +26,8 @@
 	},
 	"excludes": [
 		"**/node_modules",
-		"**/*-lock.json"
+		"**/*-lock.json",
+		"content/.meta/nginx-redirects.njk"
 	],
 	"plugins": [
 		"https://plugins.dprint.dev/json-0.21.3.wasm",

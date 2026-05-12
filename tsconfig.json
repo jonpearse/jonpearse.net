@@ -4,11 +4,13 @@
 		"jsx": "react-jsx",
 		"jsxImportSource": "@kitajs/html",
 		"paths": {
-			"@/*": ["./11ty/lib/*"]
+			"@/*": ["./11ty/lib/*"],
+			"@ui/*": ["./11ty/includes/*"]
 		}
 	},
 	"include": [
 		"**/*.ts",
-		"**/*.tsx"
+		"**/*.tsx",
+		"content/.meta/**/*.tsx"
 	]
 }
