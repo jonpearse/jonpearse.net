@@ -3,12 +3,14 @@ import { fileURLToPath } from 'url';
 
 // dependencies
 import 'tsx/esm';
+import EleventyVitePlugin from '@11ty/eleventy-plugin-vite';
 
 /** --- PATHS --- */
 
 const ROOT = dirname( dirname( fileURLToPath( import.meta.url ) ) );
 
 // Individual paths
+const ASSETS = resolve( ROOT, './assets' );
 const CONTENT = resolve( ROOT, './content' );
 const ELEVENTY = resolve( ROOT, './11ty' );
 
@@ -28,6 +30,18 @@ export default async config =>
 		},
 	} );
 	config.addTemplateFormats( [ 'jsx', 'tsx' ] );
+
+	// Use vite for assets
+	config.addPlugin( EleventyVitePlugin, {
+		viteOptions: {
+			build: {
+				assetsDir: 'a',
+			},
+		},
+	} );
+	config.addPassthroughCopy( {
+		[ASSETS]: 'a',
+	} );
 
 	return {
 		dir: {
