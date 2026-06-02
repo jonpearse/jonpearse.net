@@ -7,6 +7,8 @@
 import { ifHtml } from '@/utils';
 import { parse } from 'node-html-parser';
 
+import rehighlightSyntax from './syntax-highlighting';
+
 /**
  * Processes HTML and modifies the @rel attributes of any external links, where
  * necessary.
@@ -35,4 +37,5 @@ const processLinks = async ( html: string ): Promise<string> =>
 export default ( { bind }: { bind: any } ) =>
 {
 	bind( 'processLinks', ifHtml( processLinks ) );
+	bind( 'rehighlightSyntax', ifHtml( rehighlightSyntax ) );
 };

@@ -3,6 +3,7 @@ import { fileURLToPath } from 'url';
 
 // dependencies
 import 'tsx/esm';
+import syntaxHighlight from '@11ty/eleventy-plugin-syntaxhighlight';
 import EleventyVitePlugin from '@11ty/eleventy-plugin-vite';
 
 import bindTransforms from '@/transforms/index';
@@ -44,6 +45,9 @@ export default async config =>
 	config.addPassthroughCopy( {
 		[ASSETS]: 'a',
 	} );
+
+	// syntax highlighting is awesome
+	config.addPlugin( syntaxHighlight );
 
 	// Bind transforms
 	bindModule( config, 'addTransform', bindTransforms );

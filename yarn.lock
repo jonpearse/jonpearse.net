@@ -59,6 +59,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@11ty/eleventy-plugin-syntaxhighlight@npm:^5.0.2":
+  version: 5.0.2
+  resolution: "@11ty/eleventy-plugin-syntaxhighlight@npm:5.0.2"
+  dependencies:
+    prismjs: "npm:^1.30.0"
+  checksum: 10c0/527e833bb0925d57d6015c62d2598f90f9dcfe38f01a03f7233af1352013cdce5e0537a618710a74cfb3b780c7d53357d790bbe6e80161c6cb903837ee253b1e
+  languageName: node
+  linkType: hard
+
 "@11ty/eleventy-plugin-vite@npm:^8.0.0":
   version: 8.0.0
   resolution: "@11ty/eleventy-plugin-vite@npm:8.0.0"
@@ -1314,6 +1323,7 @@ __metadata:
   resolution: "jonpearse.net@workspace:."
   dependencies:
     "@11ty/eleventy": "npm:^3.1.5"
+    "@11ty/eleventy-plugin-syntaxhighlight": "npm:^5.0.2"
     "@11ty/eleventy-plugin-vite": "npm:^8.0.0"
     "@kitajs/html": "npm:^4.2.13"
     node-html-parser: "npm:^7.1.0"
@@ -1822,6 +1832,13 @@ __metadata:
     posthtml-parser: "npm:^0.11.0"
     posthtml-render: "npm:^3.0.0"
   checksum: 10c0/7058d1a3e88126f007476588e3e6275894623ecc6d33a7d9eb38587bad2d3eac86070e92d2c30a7480bd704cf863fc3ac14ba722ff5a6e7d10e01d36d8b1b3a8
+  languageName: node
+  linkType: hard
+
+"prismjs@npm:^1.30.0":
+  version: 1.30.0
+  resolution: "prismjs@npm:1.30.0"
+  checksum: 10c0/f56205bfd58ef71ccfcbcb691fd0eb84adc96c6ff21b0b69fc6fdcf02be42d6ef972ba4aed60466310de3d67733f6a746f89f2fb79c00bf217406d465b3e8f23
   languageName: node
   linkType: hard
 
