@@ -9,7 +9,7 @@
 	"packageManager": "yarn@4.12.0",
 	"type": "module",
 	"scripts": {
-		"dev": "node --import tsx/esm $(yarn bin eleventy) --config=11ty/eleventy.config.js --port=3000 --serve --incremental",
+		"dev": "node --import tsx/esm --import ./11ty/lib/loader.js $(yarn bin eleventy) --config=11ty/eleventy.config.js --port=3000 --serve --incremental",
 		"build": "NODE_ENV=production node --import tsx/esm $(yarn bin eleventy) --config=11ty/eleventy.config.js"
 	},
 	"devDependencies": {
