@@ -17,10 +17,13 @@
 		"@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
 		"@11ty/eleventy-plugin-vite": "^8.0.0",
 		"@kitajs/html": "^4.2.13",
+		"@types/luxon": "^3",
 		"clsx": "^2.1.1",
+		"luxon": "^3.7.2",
 		"node-html-parser": "^7.1.0",
 		"postcss-size": "^5.0.0",
 		"postcss-utopia": "^1.1.0",
+		"reading-time": "^1.5.0",
 		"tsx": "^4.21.0",
 		"typescript": "^6.0.3"
 	}

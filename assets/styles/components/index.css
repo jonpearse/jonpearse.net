@@ -1,3 +1,6 @@
+@import "./article-list.css";
+@import "./article.css";
 @import "./footer.css";
 @import "./header.css";
 @import "./home.css";
+@import "./prose.css";

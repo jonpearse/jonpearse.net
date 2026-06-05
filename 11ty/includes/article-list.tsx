@@ -1,4 +1,5 @@
 import type { Page } from '@/11ty';
+import { Preview } from './preview';
 
 export type Props = {
 	articles: Array<Page>;
@@ -12,12 +13,12 @@ export const ArticleList = ( { articles }: Props ) =>
 	}
 
 	return (
-		<ul>
+		<ol class="plain | article-list">
 			{articles.map( ( post: Page ) => (
 				<li>
-					<a href={post.url}>{post.data.title}</a>
+					<Preview {...post} />
 				</li>
 			) )}
-		</ul>
+		</ol>
 	);
 };

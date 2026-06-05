@@ -62,7 +62,10 @@ body {
 	min-block-size: 100dvh;
 }
 
-main { flex: 1; }
+main {
+	flex: 1;
+	padding-block-end: 2rem;
+}
 
 /* ========================================================================== */
 /* # Let’s have pretty HRs… */

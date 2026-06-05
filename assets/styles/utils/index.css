@@ -7,6 +7,7 @@
 	gap: var(--gap, 1rem);
 
 	&.-distribute { justify-content: space-between; }
+	&.-wrap { flex-wrap: wrap; }
 }
 
 /* ========================================================================== */
@@ -40,7 +41,7 @@ ul.plain {
 /* ========================================================================== */
 .icon {
 	display: inline-block;
-	inline-size: 1em;
+	inline-size: var(--size, 1em);
 	vertical-align: middle;
 	fill: currentcolor;
 

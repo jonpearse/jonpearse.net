@@ -1,0 +1,16 @@
+@scope (.article) {
+	header {
+		margin-block-end: 2rlh;
+
+		h1 { margin-block-end: .5rlh; }
+
+		dl {
+			--gap: 0;
+			font-size: var(--font-small);
+
+			dt { margin-inline-end: .5rem; }
+			dd:not(:last-child) { margin-inline-end: 1.5rem; }
+			.icon { --size: 1.2rem; }
+		}
+	}
+}

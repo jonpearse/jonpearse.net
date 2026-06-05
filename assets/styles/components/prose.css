@@ -1,0 +1,155 @@
+/*
+	==========================================================================
+	#
+	# ‘Prose’ styles for long-form writing
+	#
+	==========================================================================
+*/
+
+@scope (.prose) {
+	/* Lists */
+	/* ========================================================================== */
+	ul, ol {
+		--inset: 2rem;
+		margin: 1rlh 0;
+		padding: 0;
+		padding-inline-start: var(--inset);
+		list-style: none;
+		counter-reset: --listTop;
+
+		li {
+			position: relative;
+
+			&::before {
+				position: absolute;
+				inset-inline-start: calc(.5rem - var(--inset));
+
+				display: inline-block;
+				color: var(--colour-hint-1);
+				content: "";
+			}
+
+			+ li { margin-top: .5rlh; }
+		}
+
+		& > li { counter-increment: --listTop; }
+
+		ul, ol {
+			--inset: 1.6rem;
+			margin: 0;
+			counter-reset: --listNest;
+
+			& > li { counter-increment: --listNest; }
+		}
+	}
+
+	ul > li::before {
+		inset-block-start: .75rem;
+		size: .5rem;
+		border-radius: 100%;
+		background: currentcolor;
+	}
+	li ul > li::before {
+		inset-block-start: .9rem;
+		block-size: var(--weight-ul);
+		border-radius: 0;
+	}
+
+	ol > li::before {
+		inset-block-start: .25rem;
+		font-size: var(--font-small);
+		font-weight: var(--weight-ol);
+		font-variant-numeric: oldstyle-nums;
+
+		content: counter(--listTop, decimal) ".";
+	}
+	ol ol > li::before { content: counter(--listNest, lower-alpha) "."; }
+	ul ol > li::before { content: counter(--listNest, decimal) "."; }
+
+	/* Definition lists */
+	/* ========================================================================== */
+	dl {
+		margin: 1rlh 0;
+
+		dt { font-weight: var(--weight-semi); }
+		dd { margin: .2rlh 0 0; }
+		dd + dt { margin-block-start: 1.5rlh; }
+	}
+
+	/* HRs are kinda boring and we can do better */
+	/* ========================================================================== */
+	hr { margin-block: 2.5rlh; }
+
+	/* Nice pullquotes */
+	/* ========================================================================== */
+	blockquote {
+		position: relative;
+		margin: 2rlh 0;
+		padding-inline: 4rem;
+
+		&::before,
+		&::after {
+			position: absolute;
+
+			font-size: 200%;
+			color: var(--colour-hint-2);
+			opacity: .8;
+		}
+
+		&::before {
+			inset-block-start: -.3em;
+			inset-inline-start: 1rem;
+
+			content: "\275D";
+		}
+
+		p:first-child { margin-block-start: 0; }
+		p:last-child { margin-block-end: 0; }
+	}
+
+	blockquote {
+		font-weight: var(--weight-bold);
+		font-size: var(--font-tertiary);
+		font-family: var(--tf-heading);
+	}
+
+	.pulled {
+		padding: 2rlh 4rem;
+		margin-block: 3rlh;
+		background: light-dark(#fff3, #0001);
+		border-radius: 1rem;
+	}
+
+	/* Tables */
+	/* ========================================================================== */
+	table { border-collapse: collapse; }
+	th, td { padding: .1rem .5rem; }
+
+	thead th {
+		padding-block: .15rem;
+		border-block-end: 1px solid var(--colour-grey-4);
+	}
+	tbody th { border-inline-end: 1px solid var(--colour-grey-4); }
+
+	/* Inline quote */
+	/* ========================================================================== */
+	p code {
+		padding-inline: .3rem;
+		background: light-dark(rgb(0 0 0 / 3%), rgb(0 0 0 / 10%));
+		text-shadow: 1px 1px 1px light-dark(transparent, rgb(0 0 0 / 20%));
+	}
+
+	/* Tombstone */
+	/* ========================================================================== */
+	& > p:last-child::after {
+		display: inline-block;
+		break-before: avoid;
+		vertical-align: middle;
+		margin-inline-start: .6em;
+
+		color: var(--colour-hint-1);
+
+		line-height: 1;
+		content: "\2756";
+	}
+}
