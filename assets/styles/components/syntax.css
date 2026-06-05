@@ -1,0 +1,174 @@
+/* ========================================================================== */
+/* # Syntax highlighting */
+/* ========================================================================== */
+
+@scope (.syntax) {
+	:scope { counter-reset: syntax; }
+
+	header {
+		margin: 0;
+
+		* {
+			font-family: var(--tf-body);
+			font-size: var(--font-small);
+			font-weight: var(--weight-semi);
+
+			&::after { content: ":"; }
+		}
+	}
+
+	pre {
+		--padding: 1rem;
+
+		position: relative;
+		border-radius: .25rem;
+		color: #76d9e6;
+		background: #2a2a2a;
+
+		white-space: normal;
+		tab-size: 2;
+		font-size: .8em;
+		line-height: 1.4;
+
+		&:before {
+			position: absolute;
+			inset-block-start: 0;
+			inset-inline-start: 0;
+
+			block-size: 100%;
+			inline-size: 2.6rem;
+
+			background: #2f2f2f;
+			content: "";
+			z-index: 1;
+		}
+	}
+
+	code {
+		display: block;
+
+		max-inline-size: 100%;
+		overflow-x: scroll;
+		padding: var(--padding);
+
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+
+		font-weight: 400;
+
+		&::-webkit-scrollbar { display: none; }
+	}
+
+	/* let’s have some line numbering, hey? */
+	.line {
+		position: relative;
+		display: block;
+		counter-increment: syntax;
+		min-inline-size: 100%;
+
+		white-space: pre;
+
+		transition: background .15s ease;
+
+		&:before {
+			position: sticky;
+			display: inline-block;
+
+			inset-inline-start: 0;
+			transform: translateX(calc(var(--padding) * -1));
+			inline-size: 1.6rem;
+			padding-inline: .5rem;
+			margin-inline-end: .5rem;
+
+			color: rgb(255 255 255 / .4);
+			font-size: .8em;
+			text-align: right;
+
+			content: counter(syntax);
+			z-index: 2;
+
+			transition: color .15s ease;
+		}
+
+		&:hover { background: rgb(255 255 255 / .08); }
+		&:hover:before { color: rgb(255 255 255 / .6); }
+	}
+
+	/**
+	 * xonokai theme for JavaScript, CSS and HTML
+	 * based on: https://github.com/MoOx/sass-prism-theme-base by Maxime Thirouin ~ MoOx --> http://moox.fr/ , which is Loosely based on Monokai textmate theme by http://www.monokai.nl/
+	 * license: MIT; http://moox.mit-license.org/
+	 */
+	.token.namespace { opacity: .7; }
+
+	.token.comment,
+	.token.prolog,
+	.token.doctype,
+	.token.cdata { color: #6f705e; }
+
+	.token.operator,
+	.token.boolean,
+	.token.number { color: #a77afe; }
+
+	.token.attr-name,
+	.token.string { color: #e6d06c; }
+
+	.token.entity,
+	.token.url,
+	.language-css .token.string,
+	.style .token.string { color: #e6d06c; }
+
+	.token.selector,
+	.token.inserted { color: #a6e22d; }
+
+	.token.atrule,
+	.token.attr-value,
+	.token.keyword,
+	.token.important,
+	.token.deleted { color: #ef3b7d; }
+
+	.token.regex,
+	.token.statement { color: #76d9e6; }
+
+	.token.placeholder,
+	.token.variable { color: #fff; }
+
+	.token.important,
+	.token.statement,
+	.token.bold { font-weight: 600; }
+
+	.token.punctuation { color: #bebec5; }
+
+	.token.entity { cursor: help; }
+
+	.token.italic { font-style: italic; }
+
+	code.language-markup { color: #f9f9f9; }
+
+	code.language-markup .token.tag { color: #ef3b7d; }
+
+	code.language-markup .token.attr-name { color: #a6e22d; }
+
+	code.language-markup .token.attr-value { color: #e6d06c; }
+
+	code.language-markup .token.style,
+	code.language-markup .token.script { color: #76d9e6; }
+
+	code.language-markup .token.script .token.keyword { color: #76d9e6; }
+
+	/* Line highlight plugin */
+	.line-highlight.line-highlight {
+		padding: 0;
+		background: rgba(255, 255, 255, .08);
+	}
+
+	.line-highlight.line-highlight:before,
+	.line-highlight.line-highlight[data-end]:after {
+		padding: .2em .5em;
+		background-color: rgba(255, 255, 255, .4);
+		color: black;
+		height: 1em;
+		line-height: 1em;
+		box-shadow: 0 1px 1px rgba(255, 255, 255, .7);
+	}
+}
