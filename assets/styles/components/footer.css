@@ -1,0 +1,8 @@
+@scope (.footer) {
+	:scope { padding-block: .75rem; }
+
+	p {
+		font-size: var(--font-small);
+		margin-block: 0;
+	}
+}

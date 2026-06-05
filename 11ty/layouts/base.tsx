@@ -1,6 +1,8 @@
 import type { EleventyProps } from '@/11ty';
+import { Footer } from '@ui/footer';
+import { Header } from '@ui/header';
 
-export default ( { title, content, eleventy }: EleventyProps ) => (
+export default ( { title, content, nav, navKey, eleventy }: EleventyProps ) => (
 	<html lang="en-GB" dir="ltr">
 		<head>
 			<meta charset="utf-8" />
@@ -11,7 +13,9 @@ export default ( { title, content, eleventy }: EleventyProps ) => (
 			{/*<script src="/a/site.js" type="module" async defer />*/}
 		</head>
 		<body>
+			<Header nav={nav} current={navKey} />
 			{content}
+			<Footer />
 		</body>
 	</html>
 );

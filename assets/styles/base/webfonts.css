@@ -1,0 +1,44 @@
+/* ========================================================================== */
+/* # Webfonts! */
+/* ========================================================================== */
+
+@font-face {
+	font-family: Merriweather;
+	font-weight: 600;
+	font-display: fallback;
+	src:
+		local("Merriweather SemiBold"),
+		local("Merriweather-SemiBold"),
+		url("/a/fonts/merriweather-semibold.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: Raleway;
+	font-weight: 100 900;
+	font-display: fallback;
+	src: url("/a/fonts/raleway-variable.woff2") format("woff2-variations");
+}
+
+@font-face {
+	font-family: Raleway;
+	font-weight: 100 900;
+	font-style: italic;
+	font-display: fallback;
+	src: url("/a/fonts/ralewayitalic-variable.woff2") format("woff2-variations");
+}
+
+@font-face {
+	font-family: Source Code Pro;
+	font-weight: 200 900;
+	font-display: fallback;
+	src: url("/a/fonts/sourcecodepro-variable.woff2") format("woff2-variations");
+}
+
+@font-face {
+	font-family: Source Code Pro;
+	font-weight: 200 900;
+	font-style: italic;
+	font-display: fallback;
+	src: url("/a/fonts/sourcecodepro-italic-variable.woff2")
+		format("woff2-variations");
+}

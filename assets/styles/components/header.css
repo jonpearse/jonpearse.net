@@ -1,0 +1,21 @@
+@scope (.header) {
+	:scope {
+		padding-block: .75rem;
+		border-block-start: .25rem solid #000;
+		border-block-end: 1px solid #000;
+	}
+
+	.logomark {
+		inline-size: 100%;
+		max-inline-size: 8.375rem;
+		aspect-ratio: 134/21;
+		fill: currentColor;
+
+		svg { inline-size: 100%; }
+	}
+
+	nav {
+		--gap: 2rem;
+		a { text-decoration: none; }
+	}
+}

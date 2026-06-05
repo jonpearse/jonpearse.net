@@ -1,0 +1,111 @@
+@import "./variables.css";
+@import "./webfonts.css";
+@import "./type.css";
+
+/* ========================================================================== */
+/* # Other basic stuff */
+/* ========================================================================== */
+
+/* Very basic styles */
+/* ========================================================================== */
+html,
+body {
+	background: var(--colour-bg);
+	color: var(--colour-fg);
+}
+
+/* General a11y shim that we’ve all copy-pasted since 2011 sometime… */
+/* ========================================================================== */
+.a11y:not(:focus):not(:active) {
+	position: absolute;
+	transform: scale(0);
+	opacity: 0;
+}
+
+/* Links */
+/* ========================================================================== */
+a {
+	color: var(--colour-fg);
+	text-decoration: var(--colour-accent-1) underline 1px;
+	text-underline-offset: .2rem;
+	font-weight: calc(var(--weight-norm) + 50);
+
+	transition: color .15s, box-shadow .15s;
+
+	&:hover { color: var(--brand, var(--colour-accent-1)); }
+
+	/* Implement GDS-style link highlighting. Note that `outline: none` on its own is bad juju… */
+	outline: none;
+	box-shadow: var(--colour-hilite) 0 0 0 var(--outline, 0);
+	border-radius: 2px;
+
+	&:focus-visible { --outline: 2px; }
+}
+
+/* Other nice things to have that don’t really belong anywhere else… */
+/* ========================================================================== */
+abbr[title] {
+	cursor: help;
+	border-bottom: none;
+	text-decoration: underline;
+	text-decoration: underline dotted rgb(from var(--colour-fg) r g b / .6);
+}
+
+/* ========================================================================== */
+/* # Layout, because we don’t really have much of it… */
+/* ========================================================================== */
+body {
+	display: flex;
+	flex-direction: column;
+
+	min-block-size: 100vh;
+	min-block-size: 100dvh;
+}
+
+main { flex: 1; }
+
+/* ========================================================================== */
+/* # Let’s have pretty HRs… */
+/* ========================================================================== */
+
+hr {
+	position: relative;
+
+	display: grid;
+	place-content: center;
+
+	margin: 2rlh var(--mi);
+	border: none;
+	height: 1.2rem;
+
+	color: light-dark(#0003, #fff4);
+
+	&::before {
+		position: absolute;
+		inset-block-start: 50%;
+		height: 1px;
+		width: 100%;
+		transform: translateY(-50%);
+
+		background: currentcolor;
+		mask-image: linear-gradient(
+			90deg,
+			transparent,
+			black 10%,
+			black calc(50% - 1.5rem),
+			transparent calc(50% - .5rem),
+			transparent calc(50% + .5rem),
+			black calc(50% + 2.5rem),
+			black 90%,
+			transparent
+		);
+
+		content: "";
+	}
+
+	&::after {
+		font-size: 120%;
+		transform: rotate(45deg);
+		content: "※";
+	}
+}

@@ -1,0 +1,15 @@
+@scope (.home) {
+	:scope {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	h1 {
+		align-items: start;
+		margin-block-end: 4rem;
+
+		font-family: var(--tf-body);
+		font-weight: var(--weight-norm);
+	}
+}

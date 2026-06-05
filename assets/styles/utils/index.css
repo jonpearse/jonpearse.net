@@ -1,0 +1,48 @@
+/* ========================================================================== */
+/* # Flex shortcuts */
+/* ========================================================================== */
+.flex {
+	display: flex;
+	align-items: center;
+	gap: var(--gap, 1rem);
+
+	&.-distribute { justify-content: space-between; }
+}
+
+/* ========================================================================== */
+/* # Plain lists */
+/* ========================================================================== */
+ol.plain,
+ul.plain {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+/* ========================================================================== */
+/* # Containment */
+/* ========================================================================== */
+.container {
+	/* Stretch padding from 20px@480w to 80px@1160w */
+	--inline-padding: utopia.clamp(20, 80, 480, 1160);
+
+	margin-inline: auto;
+	inline-size: min(
+		100% - calc(2 * var(--inline-padding)),
+		var(--max-width, 62.5rem)
+	);
+
+	&.-narrow { --max-width: 50rem; }
+}
+
+/* ========================================================================== */
+/* # Icons */
+/* ========================================================================== */
+.icon {
+	display: inline-block;
+	inline-size: 1em;
+	vertical-align: middle;
+	fill: currentcolor;
+
+	&.-large { inline-size: 1.4em; }
+}

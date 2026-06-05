@@ -1,0 +1,17 @@
+@layer reset, base, utils, components;
+
+/* 0. Normalise all the things */
+/* ========================================================================== */
+@import "styles/vendor/reset.css" layer(reset);
+
+/* 1. Base styles */
+/* ========================================================================== */
+@import "styles/base/index.css" layer(base);
+
+/* 2. Utilities */
+/* ========================================================================== */
+@import "styles/utils/index.css" layer(utils);
+
+/* 3. Components */
+/* ========================================================================== */
+@import "styles/components/index.css" layer(components);
