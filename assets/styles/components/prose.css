@@ -7,6 +7,8 @@
 */
 
 @scope (.prose) {
+	:scope { --pulled-inline-padding: utopia.clamp(16, 64, 480, 1160); }
+
 	/* Lists */
 	/* ========================================================================== */
 	ul, ol {
@@ -85,7 +87,7 @@
 	blockquote {
 		position: relative;
 		margin: 2rlh 0;
-		padding-inline: 4rem;
+		padding-inline: var(--pulled-inline-padding);
 
 		&::before,
 		&::after {
@@ -98,7 +100,7 @@
 
 		&::before {
 			inset-block-start: -.3em;
-			inset-inline-start: 1rem;
+			inset-inline-start: clamp(-1rem, -2.4118rem + 4.7059vw, 1rem);
 
 			content: "\275D";
 		}
@@ -114,8 +116,10 @@
 	}
 
 	.pulled {
-		padding: 2rlh 4rem;
+		padding: clamp(1rlh, .3493rem + 2.7941vw, 2rlh)
+			var(--pulled-inline-padding);
 		margin-block: 3rlh;
+		margin-inline: clamp(-.625rem, -2.5rem + 6.25vw, 0rem);
 		background: light-dark(#fff3, #0001);
 		border-radius: 1rem;
 	}
