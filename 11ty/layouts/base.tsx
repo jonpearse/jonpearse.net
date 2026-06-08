@@ -8,6 +8,7 @@ export default ( { title, content, nav, navKey, eleventy }: EleventyProps ) => (
 			<meta charset="utf-8" />
 			<meta content="width=device-width,initial-scale=1" name="viewport" />
 			<meta name="generator" content={`eleventy v${eleventy.version}`} />
+			<link rel="author" href="/humans.txt" />
 			<title>{title} :: jonpearse.net</title>
 			<link rel="stylesheet" href="/a/site.css" />
 			{/*<script src="/a/site.js" type="module" async defer />*/}

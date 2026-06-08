@@ -40,6 +40,7 @@ export default async config =>
 			build: {
 				assetsDir: 'a',
 			},
+			publicDir: '_public',
 		},
 	} );
 	config.addPassthroughCopy( {
