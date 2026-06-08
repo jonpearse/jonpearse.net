@@ -37,4 +37,5 @@ export type FrontEndMatter = {
 		rootUrl: string;
 		shortUrl: string;
 	};
+	shortUrl?: string;
 };
