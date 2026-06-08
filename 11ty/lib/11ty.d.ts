@@ -30,4 +30,11 @@ export type FrontEndMatter = {
 	nav?: Record<string, NavItem>;
 	navKey?: string;
 	tags?: Array<string>;
+	meta: {
+		title: string;
+		description: string;
+		language: string;
+		rootUrl: string;
+		shortUrl: string;
+	};
 };

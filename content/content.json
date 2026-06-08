@@ -4,5 +4,13 @@
 	"nav": {
 		"home": { "label": "Home", "url": "/" },
 		"writing": { "label": "Writing", "url": "/writing/" }
+	},
+
+	"meta": {
+		"title": "jonpearse.net",
+		"description": "Hi! I’m a freelance full-stack developer based in Cardiff, UK, and I specialise in the creation of beautiful, functional, and usable websites.",
+		"language": "en-GB",
+		"rootUrl": "https://jonpearse.net/",
+		"shortUrl": "https://jdp.codes/r/"
 	}
 }

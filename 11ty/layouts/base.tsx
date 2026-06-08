@@ -2,14 +2,21 @@ import type { EleventyProps } from '@/11ty';
 import { Footer } from '@ui/footer';
 import { Header } from '@ui/header';
 
-export default ( { title, content, nav, navKey, eleventy }: EleventyProps ) => (
-	<html lang="en-GB" dir="ltr">
+export default ( { title, description, content, nav, navKey, eleventy, meta }: EleventyProps ) => (
+	<html lang={meta.language} dir="ltr">
 		<head>
 			<meta charset="utf-8" />
 			<meta content="width=device-width,initial-scale=1" name="viewport" />
 			<meta name="generator" content={`eleventy v${eleventy.version}`} />
+
+			{/* SEO-juice */}
+			<title>{title} :: {meta.title}</title>
+			<meta name="description" content={description ?? meta.description} />
+
+			{/* Other links */}
 			<link rel="author" href="/humans.txt" />
-			<title>{title} :: jonpearse.net</title>
+
+			{/* Assets */}
 			<link rel="stylesheet" href="/a/site.css" />
 			{/*<script src="/a/site.js" type="module" async defer />*/}
 		</head>
