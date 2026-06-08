@@ -22,3 +22,18 @@ fonts:
 	&& npx glyphhanger --subset=*.ttf --formats=woff2 --whitelist=U+20-FF,U+174-177,U+2000-201D,U+2026 \
 	&& for f in *-subset.*; do mv "$$f" "../$${f/-subset/}"; done
 	@cd assets/fonts && rename -f 'y/A-Z/a-z/' *
+
+# ----------
+# DEPLOYMENT
+# ----------
+# deploy target is configured in the .env, so we need to pull that in
+-include .env
+
+RSYNC_FLAGS = -avz --delete
+
+dry-run: build
+	@rsync $(RSYNC_FLAGS) --dry-run .build/ $(DEPLOY_HOST):$(DEPLOY_PATH)/
+
+deploy: build
+	@rsync $(RSYNC_FLAGS) .build/ $(DEPLOY_HOST):$(DEPLOY_PATH)/
+	@ssh $(DEPLOY_HOST) 'sudo service nginx restart'
