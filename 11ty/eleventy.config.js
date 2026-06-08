@@ -3,6 +3,7 @@ import { fileURLToPath } from 'url';
 
 // dependencies
 import 'tsx/esm';
+import pluginRss from '@11ty/eleventy-plugin-rss';
 import syntaxHighlight from '@11ty/eleventy-plugin-syntaxhighlight';
 import EleventyVitePlugin from '@11ty/eleventy-plugin-vite';
 
@@ -49,6 +50,9 @@ export default async config =>
 
 	// syntax highlighting is awesome
 	config.addPlugin( syntaxHighlight );
+
+	// RSS!
+	config.addPlugin( pluginRss );
 
 	// Bind transforms
 	bindModule( config, 'addTransform', bindTransforms );

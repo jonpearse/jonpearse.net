@@ -1,0 +1,24 @@
+---
+permalink: _public/feeds/summary.xml
+layout: null
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>{{ meta.title }}</title>
+		<description>{{ meta.description }}</description>
+		<link>{{meta.rootUrl}}</link>
+		<link href="{{ meta.rootUrl }}{{ permalink  }}" rel="self" />
+		<language>{{meta.language}}</language>
+		<lastBuildDate>{{ page.date | dateToRfc822 }}</lastBuildDate>
+		{%- for post in collections._posts | reverse %}
+		<item>
+			<title>{{post.data.title}}</title>
+			<link>{{ post.url | htmlBaseUrl(meta.rootUrl) }}</link>
+			<guid>{{ [meta.shortUrl, post.data.shortUrl] | join | htmlBaseUrl(meta.shortUrl) }}</guid>
+			<description>{{ post.data.description | safe }}</description>
+			<pubDate>{{ post.date | dateToRfc822 }}</pubDate>
+		</item>
+		{%- endfor %}
+	</channel>
+</rss>

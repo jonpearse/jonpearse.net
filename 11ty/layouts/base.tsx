@@ -13,6 +13,10 @@ export default ( { title, description, content, nav, navKey, eleventy, meta }: E
 			<title>{title} :: {meta.title}</title>
 			<meta name="description" content={description ?? meta.description} />
 
+			{/* RSS is awesome */}
+			<link rel="alternate" type="application/rss+xml" href="/feeds/full.xml" title="RSS - full posts" />
+			<link rel="alternate" type="application/rss+xml" href="/feeds/summary.xml" title="RSS - summary only" />
+
 			{/* Other links */}
 			<link rel="author" href="/humans.txt" />
 
