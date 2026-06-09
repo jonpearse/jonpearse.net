@@ -40,6 +40,7 @@ export default ( { title, description, content, nav, navKey, eleventy, meta, pag
 				<meta name="fediverse:creator" content="@jonpearse@front-end.social" />
 
 				{/* Assets */}
+				<style>@import "/a/critical.css";</style>
 				<link rel="stylesheet" href="/a/site.css" />
 				{/*<script src="/a/site.js" type="module" async defer />*/}
 			</head>

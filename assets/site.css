@@ -1,5 +1,3 @@
-@layer reset, base, utils, components;
-
 /* 0. Normalise all the things */
 /* ========================================================================== */
 @import "styles/vendor/reset.css" layer(reset);

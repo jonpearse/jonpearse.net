@@ -1,4 +1,3 @@
-@import "./variables.css";
 @import "./webfonts.css";
 @import "./type.css";
 
@@ -6,13 +5,9 @@
 /* # Other basic stuff */
 /* ========================================================================== */
 
-/* Very basic styles */
+/* Ensure body is visible (hidden in critical CSS) */
 /* ========================================================================== */
-html,
-body {
-	background: var(--colour-bg);
-	color: var(--colour-fg);
-}
+body { opacity: 1; }
 
 /* General a11y shim that we’ve all copy-pasted since 2011 sometime… */
 /* ========================================================================== */

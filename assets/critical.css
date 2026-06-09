@@ -1,0 +1,16 @@
+@layer critical, reset, base, utils, components;
+
+/* 0. Variables are useful */
+/* ========================================================================== */
+@import "styles/base/variables.css" layer(critical);
+
+/* 1. Set very basic styles, otherwise hide everything */
+/* ========================================================================== */
+@layer critical {
+	html, body {
+		background: var(--colour-bg);
+		color: var(--colour-fg);
+	}
+
+	body { opacity: 0; }
+}
