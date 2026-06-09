@@ -40,6 +40,7 @@ export default async config =>
 		viteOptions: {
 			build: {
 				assetsDir: 'a',
+				cssMinify: false,
 			},
 			publicDir: '_public',
 		},

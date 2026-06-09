@@ -20,6 +20,7 @@
 		"@kitajs/html": "^4.2.13",
 		"@types/luxon": "^3",
 		"clsx": "^2.1.1",
+		"cssnano": "^8.0.1",
 		"luxon": "^3.7.2",
 		"node-html-parser": "^7.1.0",
 		"postcss-size": "^5.0.0",
