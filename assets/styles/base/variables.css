@@ -6,7 +6,7 @@
 	--colour-bg: light-dark(#fff, #353b41);
 
 	--colour-accent-1: light-dark(#e44849, hsl(360, 74%, 59%));
-	--colour-accent-2: light-dark(#d14244, hsl(359, 50%, 35%));
+	--colour-accent-2: light-dark(#d14244, hsl(359, 50%, 60%));
 	--colour-accent-3: light-dark(#ffe6e6, hsl(359, 50%, 90%));
 	--colour-hilite: light-dark(#ffe066, hsl(48, 60%, 50%));
 

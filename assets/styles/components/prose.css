@@ -94,7 +94,7 @@
 			position: absolute;
 
 			font-size: 200%;
-			color: var(--colour-hint-2);
+			color: var(--colour-accent-2);
 			opacity: .8;
 		}
 
@@ -120,7 +120,7 @@
 			var(--pulled-inline-padding);
 		margin-block: 3rlh;
 		margin-inline: clamp(-.625rem, -2.5rem + 6.25vw, 0rem);
-		background: light-dark(#fff3, #0001);
+		background: light-dark(#e4484911, #0001);
 		border-radius: 1rem;
 	}
 
