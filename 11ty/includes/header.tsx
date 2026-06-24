@@ -2,10 +2,9 @@ import { NavItem } from '@/11ty';
 
 type Props = {
 	nav?: Record<string, NavItem>;
-	current?: string;
 };
 
-export const Header = ( { nav, current }: Props ) =>
+export const Header = ( { nav }: Props ) =>
 {
 	return (
 		<header class="header">
@@ -21,9 +20,9 @@ export const Header = ( { nav, current }: Props ) =>
 				{nav && (
 					<nav>
 						<ul class="flex plain">
-							{Object.entries( nav ).map( ( [ key, { url, label } ] ) => (
+							{Object.entries( nav ).map( ( [ _, { url, label } ] ) => (
 								<li>
-									<a href={url} class={current === key ? '-current' : ''}>{label}</a>
+									<a href={url}>{label}</a>
 								</li>
 							) )}
 						</ul>

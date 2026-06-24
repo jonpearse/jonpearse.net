@@ -28,7 +28,6 @@ export type FrontEndMatter = {
 	title?: string;
 	description?: string;
 	nav?: Record<string, NavItem>;
-	navKey?: string;
 	tags?: Array<string>;
 	meta: {
 		title: string;

@@ -2,7 +2,7 @@ import type { EleventyProps } from '@/11ty';
 import { Footer } from '@ui/footer';
 import { Header } from '@ui/header';
 
-export default ( { title, description, content, nav, navKey, eleventy, meta, page, tags, shortUrl }: EleventyProps ) =>
+export default ( { title, description, content, nav, eleventy, meta, page, tags, shortUrl }: EleventyProps ) =>
 {
 	const isPost = tags?.includes( '_posts' );
 
@@ -45,7 +45,7 @@ export default ( { title, description, content, nav, navKey, eleventy, meta, pag
 				{/*<script src="/a/site.js" type="module" async defer />*/}
 			</head>
 			<body>
-				<Header nav={nav} current={navKey} />
+				<Header nav={nav} />
 				{content}
 				<Footer />
 			</body>
