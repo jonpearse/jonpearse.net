@@ -7,7 +7,24 @@
 */
 
 @scope (.prose) {
-	:scope { --pulled-inline-padding: utopia.clamp(16, 64, 480, 1160); }
+	:scope {
+		--pulled-inline-padding: utopia.clamp(16, 64, 480, 1160);
+
+		--pulled-bg: rgb(0, 0, 0, .1);
+		--table-border-color: rgba(255, 255, 255, .15);
+		--inline-code-bg: rgba(0, 0, 0, .1);
+		--inline-code-sh: rgba(0, 0, 0, .2);
+
+		@supports (color: light-dark(black, white)) {
+			--pulled-bg: light-dark(#e4484911, #0001);
+			--table-border-color: light-dark(
+				rgb(0 0 0 / 25%),
+				rgb(255 255 255 / 15%)
+			);
+			--inline-code-bg: light-dark(rgb(0 0 0 / 3%), rgb(0 0 0 / 10%));
+			--inline-code-sh: light-dark(transparent, rgb(0 0 0 / 20%));
+		}
+	}
 
 	/* Lists */
 	/* ========================================================================== */
@@ -120,7 +137,7 @@
 			var(--pulled-inline-padding);
 		margin-block: 3rlh;
 		margin-inline: clamp(-.625rem, -2.5rem + 6.25vw, 0rem);
-		background: light-dark(#e4484911, #0001);
+		background: var(--pulled-bg);
 		border-radius: 1rem;
 	}
 
@@ -131,16 +148,16 @@
 
 	thead th {
 		padding-block: .15rem;
-		border-block-end: 1px solid var(--colour-grey-4);
+		border-block-end: 1px solid var(--table-border-color);
 	}
-	tbody th { border-inline-end: 1px solid var(--colour-grey-4); }
+	tbody th { border-inline-end: 1px solid var(--table-border-color); }
 
 	/* Inline quote */
 	/* ========================================================================== */
 	p code {
 		padding-inline: .3rem;
-		background: light-dark(rgb(0 0 0 / 3%), rgb(0 0 0 / 10%));
-		text-shadow: 1px 1px 1px light-dark(transparent, rgb(0 0 0 / 20%));
+		background: var(--inline-code-sh);
+		text-shadow: 1px 1px 1px var(--inline-code-bg);
 	}
 
 	/* Tombstone */

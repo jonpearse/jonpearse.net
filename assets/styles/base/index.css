@@ -76,7 +76,10 @@ hr {
 	border: none;
 	height: 1.2rem;
 
-	color: light-dark(#0003, #fff4);
+	color: #fff4;
+	@supports (color: light-dark(black, white)) {
+		color: light-dark(#0003, #fff4);
+	}
 
 	&::before {
 		position: absolute;

@@ -55,7 +55,7 @@ small { font-size: var(--font-small); }
 
 pre, code, tt {
 	font-family: var(--tf-mono);
-	font-weight: calc(var(--font-semi) - 50);
+	font-weight: calc(var(--weight-semi) - 50);
 }
 
 .lede { font-size: var(--font-tertiary); }
