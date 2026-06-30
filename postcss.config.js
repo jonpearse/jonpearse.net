@@ -31,6 +31,8 @@ const scopePolyfill = {
 
 			const rootScope = match[1];
 
+			// ‘:scope’ directly inside @scope refers to the scope root — once everything’s nested
+			// under a plain rule below, that’s exactly what ‘&’ means at this level
 			decl.each( child =>
 			{
 				if ( !child.selectors )
@@ -39,20 +41,11 @@ const scopePolyfill = {
 				}
 
 				child.selectors = child.selectors.map( selector =>
-				{
-					// if it’s a :scope rule, just switch the selector out
-					if ( selector.startsWith( ':scope' ) )
-					{
-						return selector.replace( ':scope', rootScope );
-					}
-
-					// otherwise, prefix scope and return
-					return `${rootScope} ${selector}`;
-				} ).flat();
+					selector.startsWith( ':scope' ) ? selector.replace( ':scope', '&' ) : selector
+				);
 			} );
 
-			decl.each( child => decl.before( child ) );
-			decl.remove();
+			decl.replaceWith( { selector: rootScope, nodes: decl.nodes } );
 		},
 	},
 };
