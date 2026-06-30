@@ -162,13 +162,13 @@
 
 	/* Tombstone */
 	/* ========================================================================== */
-	& > p:last-child::after {
+	> p:last-child::after {
 		display: inline-block;
 		break-before: avoid;
 		vertical-align: middle;
 		margin-inline-start: .6em;
 
-		color: var(--colour-hint-1);
+		color: var(--colour-accent-1);
 
 		line-height: 1;
 		content: "\2756";

@@ -58,8 +58,11 @@ body {
 }
 
 main {
+	--block-padding: utopia.clamp(32, 64, 480, 960);
+
 	flex: 1;
-	padding-block-end: 2rem;
+	padding-block-start: var(--block-padding);
+	padding-block-end: calc(var(--block-padding) * 2);
 }
 
 /* ========================================================================== */
