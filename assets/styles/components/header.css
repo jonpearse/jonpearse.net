@@ -65,6 +65,9 @@
 
 			/* Open styles */
 			&:popover-open {
+				display: flex;
+				flex-direction: column;
+
 				transform: translateX(0);
 				opacity: 1;
 
@@ -86,6 +89,7 @@
 		}
 
 		.nav-list {
+			flex: 1;
 			flex-direction: column;
 			align-items: stretch;
 			font-size: var(--font-tertiary);
@@ -107,6 +111,7 @@
 			inset: unset;
 
 			display: flex;
+			gap: 1.5rem;
 		}
 
 		.nav-list { gap: 2rem; }

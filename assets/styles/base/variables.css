@@ -9,6 +9,7 @@
 	*/
 	--colour-fg: #ced4da;
 	--colour-bg: #353b41;
+	--colour-ov: #eee;
 
 	--colour-accent-1: hsl(360, 74%, 59%);
 	--colour-accent-2: hsl(359, 50%, 60%);
@@ -23,10 +24,11 @@
 
 		--colour-fg: light-dark(#333, #ced4da);
 		--colour-bg: light-dark(#fff, #353b41);
+		--colour-ov: light-dark(#eee, #0006);
 
 		--colour-accent-1: light-dark(#e44849, hsl(360, 74%, 59%));
 		--colour-accent-2: light-dark(#d14244, hsl(359, 50%, 60%));
-		--colour-accent-3: light-dark(#ffe6e6, hsl(359, 50%, 90%));
+		--colour-accent-3: light-dark(#ffe6e6, #e4484933);
 		--colour-hilite: light-dark(#ffe066, hsl(48, 60%, 50%));
 	}
 }

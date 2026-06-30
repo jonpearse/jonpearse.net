@@ -1,5 +1,6 @@
 import { NavItem } from '@/11ty';
 import { Close, Menu } from './icons';
+import { ThemeSwitcher } from './theme-switcher';
 
 type Props = {
 	nav: Record<string, NavItem>;
@@ -33,6 +34,9 @@ export const Header = ( { nav }: Props ) =>
 							</li>
 						) )}
 					</ul>
+
+					{/* Theme switcher */}
+					<ThemeSwitcher />
 
 					{/* Close button */}
 					<button class="square | close" popovertarget="main-nav" popovertargetaction="close">

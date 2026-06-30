@@ -1,0 +1,204 @@
+/*
+	==========================================================================
+	#
+	# Theme switcher component
+	#
+	# This is only available on browsers that support light-dark()
+	#
+	==========================================================================
+*/
+
+@scope (.theme-switcher) {
+	--radius: .5rem;
+	--offsetY: .75rem;
+
+	:scope {
+		/* Hide everything by default */
+		display: none;
+
+		/* Only show on browsers that support light-dark, as that‘s how we’re specifying colours */
+		@supports (color: light-dark(black, white)) { display: block; }
+	}
+
+	/* ========================================================================== */
+	/* # The functionality differs depending on viewport */
+	/* ========================================================================== */
+
+	/* Global styles */
+	ul {
+		border: 0;
+		inset: unset;
+		list-style: none;
+	}
+
+	svg.-tick { display: none; }
+
+	/* Small viewports: always present */
+	@media (width < 480px) {
+		h2 { font: var(--weight-norm) var(--font-base) / 1.5 var(--tf-body); }
+
+		/* Trigger button is not shown */
+		button { display: none; }
+
+		/* List is just standard */
+		ul {
+			display: flex;
+			background: transparent;
+			gap: 1rem;
+		}
+
+		a {
+			--size: 1.5rem;
+			aspect-ratio: 1;
+			padding: .5rem;
+			border: 1px dotted var(--colour-fg);
+			border-radius: var(--radius);
+
+			span { display: none; }
+		}
+
+		/*
+			This might fall into the category of “unnecessary”, but… I kinda like it, so here we are
+		*/
+		@container viewport style(--colour-scheme: light dark) {
+			a[data-theme="default"] {
+				border: 1px solid var(--colour-accent-1);
+				background: var(--colour-accent-3);
+			}
+		}
+
+		@container viewport style(--colour-scheme: light) {
+			a[data-theme="light"] {
+				border: 1px solid var(--colour-accent-1);
+				background: var(--colour-accent-3);
+			}
+		}
+
+		@container viewport style(--colour-scheme: dark) {
+			a[data-theme="dark"] {
+				border: 1px solid var(--colour-accent-1);
+				background: var(--colour-accent-3);
+			}
+		}
+	}
+
+	/* Larger viewport: it’s a flyout */
+	@media (width >= 480px) {
+		/* Title */
+		h2 { display: none; }
+
+		/* Trigger button */
+		button {
+			padding: .5rem;
+			aspect-ratio: 1;
+			border: none;
+			border-radius: var(--radius);
+
+			color: var(--colour-fg);
+			background: transparent;
+
+			cursor: pointer;
+			transition: color .15s, box-shadow .15s, background .15s;
+
+			&:hover { color: var(--colour-accent-1); }
+
+			&:has(+ :popover-open) { background: var(--colour-ov); }
+		}
+
+		/* Flyout list */
+		ul {
+			position: relative;
+			overflow: visible;
+
+			border-radius: var(--radius);
+			padding-block: .75rem;
+			inline-size: max-content;
+
+			background: var(--colour-ov);
+			box-shadow: 0 .125rem .5rem 0 #0003;
+			font-size: utopia.clamp(14, 18, 480, 960);
+
+			/*
+				Anchor positioning would be *wonderful* here, but as of June 2026, CanIUse says ~19% of folk are still using
+				browsers that don’t support it… so let’s provide a fallback here for now…
+			*/
+			transform: translate(calc(2.25rem - 100%), var(--offsetY));
+
+			/* Add a tail */
+			&::after {
+				position: absolute;
+
+				inset-block-start: 0;
+				inset-inline-end: .75rem;
+				size: .8rem;
+				border-radius: 2px;
+
+				background: inherit;
+				clip-path: polygon(0 0, 100% 0, 0 100%);
+				transform: translateY(-50%) rotate(45deg);
+
+				content: "";
+			}
+		}
+
+		/* Running margins are my friend */
+		li + li { margin-block-start: .5rem; }
+
+		/* Individual buttons */
+		a {
+			--gap: .75rem;
+			padding-inline: .5rem;
+		}
+
+		/*
+			Overlay of the above for folk with anchor positioning: it doesn’t actually make for any improvement, but it’s always
+			fun learning some new tech, and we can adopt it once browser support climes a touch more…
+		*/
+		@supports (anchor-name: --foo) {
+			button { anchor-name: --theme-switcher; }
+			ul {
+				--tx: .15s;
+
+				position-anchor: --theme-switcher;
+				position-area: end span-start;
+				inset-block-start: var(--offsetY);
+
+				transform: translateY(-1rem);
+				opacity: 0;
+
+				transition:
+					transform var(--tx) ease-out,
+					opacity var(--tx) ease-in,
+					display var(--tx) allow-discrete,
+					overlay var(--tx) allow-discrete;
+
+				&:popover-open {
+					transform: translateY(0);
+					opacity: 1;
+
+					@starting-style {
+						transform: translateY(-1rem);
+						opacity: 0;
+					}
+				}
+			}
+		}
+
+		/*
+			This might fall into the category of “unnecessary”, but… I kinda like it, so here we are
+		*/
+		svg.-tick { --size: .75rem; }
+
+		@container viewport style(--colour-scheme: light dark) {
+			a[data-theme="default"] svg.-tick { display: block; }
+		}
+
+		@container viewport style(--colour-scheme: light) {
+			a[data-theme="light"] svg.-tick { display: block; }
+		}
+
+		@container viewport style(--colour-scheme: dark) {
+			a[data-theme="dark"] svg.-tick { display: block; }
+		}
+	}
+}
