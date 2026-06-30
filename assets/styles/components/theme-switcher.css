@@ -181,6 +181,8 @@
 						opacity: 0;
 					}
 				}
+
+				@media (prefers-reduced-motion: reduce) { --tx: 0s; }
 			}
 		}
 
