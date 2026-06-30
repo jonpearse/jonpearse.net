@@ -40,10 +40,31 @@ ul.plain {
 /* # Icons */
 /* ========================================================================== */
 .icon {
+	flex-shrink: 0;
 	display: inline-block;
-	inline-size: var(--size, 1em);
+	size: var(--size, 1em);
 	vertical-align: middle;
 	fill: currentcolor;
 
 	&.-large { inline-size: 1.4em; }
+}
+
+/* ========================================================================== */
+/* # Square buttons are cool */
+/* ========================================================================== */
+button.square {
+	padding: var(--padding, .5rem);
+	border: none;
+	border-radius: var(--radius, .5rem);
+
+	color: var(--colour-fg);
+	background: transparent;
+	line-height: 1;
+
+	cursor: pointer;
+	transition: color .15s, box-shadow .15s, background .15s;
+
+	&:hover { color: var(--colour-accent-1); }
+
+	.icon { display: block; }
 }

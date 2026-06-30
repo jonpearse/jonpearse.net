@@ -1,7 +1,8 @@
 import { NavItem } from '@/11ty';
+import { Close, Menu } from './icons';
 
 type Props = {
-	nav?: Record<string, NavItem>;
+	nav: Record<string, NavItem>;
 };
 
 export const Header = ( { nav }: Props ) =>
@@ -17,17 +18,27 @@ export const Header = ( { nav }: Props ) =>
 					</svg>
 				</a>
 
-				{nav && (
-					<nav>
-						<ul class="flex plain">
-							{Object.entries( nav ).map( ( [ _, { url, label } ] ) => (
-								<li>
-									<a href={url}>{label}</a>
-								</li>
-							) )}
-						</ul>
-					</nav>
-				)}
+				{/* Trigger (mobile only) */}
+				<button class="square | trigger-nav" popovertarget="main-nav">
+					<Menu title="Show/hide navigation menu" />
+				</button>
+
+				{/* Actual flyout bit */}
+				<nav id="main-nav" popover>
+					{/* Main nav list */}
+					<ul class="flex plain | nav-list">
+						{Object.entries( nav ).map( ( [ _, { url, label } ] ) => (
+							<li>
+								<a href={url}>{label}</a>
+							</li>
+						) )}
+					</ul>
+
+					{/* Close button */}
+					<button class="square | close" popovertarget="main-nav" popovertargetaction="close">
+						<Close title="Hide navigation menu" />
+					</button>
+				</nav>
 			</div>
 		</header>
 	);
