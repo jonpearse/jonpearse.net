@@ -5,7 +5,7 @@ setup:
 	@corepack yarn
 
 dev: clean
-	@corepack yarn dev
+	@overmind s
 
 build: clean
 	@corepack yarn build
