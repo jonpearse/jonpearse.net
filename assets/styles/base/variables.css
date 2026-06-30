@@ -19,7 +19,7 @@
 		Second pass: bimode colours for browsers that support such things!
 	*/
 	@supports (color: light-dark(black, white)) {
-		color-scheme: light dark;
+		color-scheme: var(--colour-scheme, light dark);
 
 		--colour-fg: light-dark(#333, #ced4da);
 		--colour-bg: light-dark(#fff, #353b41);
@@ -42,12 +42,39 @@
 	--font-tertiary: utopia.clamp(18, 22, 480, 960);
 
 	/* --- Weights --- */
-	--weight-norm: 350;
+	--weight-norm-light: 350;
+	--weight-norm-dark: 300;
+
+	--weight-norm: var(--weight-norm-light);
 	--weight-semi: 500;
 	--weight-bold: 600;
+}
 
-	/* Render normal text _slightly_ lighter in dark mode… */
-	@media (prefers-color-scheme: dark) { --weight-norm: var(300); }
+/*
+	Light text on dark backgrounds appears slightly heavier than dark-on-light, so let’s adjust the main body weight a
+	touch to suit. Unfortunately there’s no equivalent of light-dark() for things that aren’t colours/images (yet!), so
+	we need to be a bit more inventive.
 
-	--weight-norm-dk: 300;
+	Fortunately container style queries are ✨magic✨ and are supported by ~80% of users (as of June 2026), so we can use
+	them. It does leave the remaining 20% out in the cold, but as this is very much more a ‘nice-to-have’, I’m OK with
+	not providing a fallback.
+*/
+html { container: viewport; }
+
+body {
+	/* Forced light- and dark modes are easy */
+	@container viewport style(--colour-scheme: light) {
+		--weight-norm: var(--weight-norm-light);
+	}
+
+	@container viewport style(--colour-scheme: dark) {
+		--weight-norm: var(--weight-norm-dark);
+	}
+
+	/* In ‘default’ mode, we can just defer to old-school media queries */
+	@container viewport style(--colour-scheme: light dark) {
+		@media (prefers-color-scheme: dark) {
+			--weight-norm: var(--weight-norm-dark);
+		}
+	}
 }
