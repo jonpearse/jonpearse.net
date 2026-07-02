@@ -116,7 +116,7 @@
 
 			background: var(--colour-ov);
 			box-shadow: 0 .125rem .5rem 0 #0003;
-			font-size: utopia.clamp(14, 18, 480, 960);
+			font-size: utopia-clamp(14, 18, 480, 960);
 
 			/*
 				Anchor positioning would be *wonderful* here, but as of June 2026, CanIUse says ~19% of folk are still using

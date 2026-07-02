@@ -36,12 +36,12 @@
 /* ===== TEXT ===== */
 :root {
 	/* --- Sizes --- */
-	--font-base: utopia.clamp(16, 20, 480, 960);
-	--font-small: utopia.clamp(13, 16, 480, 960);
+	--font-base: utopia-clamp(16, 20, 480, 960);
+	--font-small: utopia-clamp(13, 16, 480, 960);
 
-	--font-primary: utopia.clamp(28, 36, 480, 960);
-	--font-secondary: utopia.clamp(20, 28, 480, 960);
-	--font-tertiary: utopia.clamp(18, 22, 480, 960);
+	--font-primary: utopia-clamp(28, 36, 480, 960);
+	--font-secondary: utopia-clamp(20, 28, 480, 960);
+	--font-tertiary: utopia-clamp(18, 22, 480, 960);
 
 	/* --- Weights --- */
 	--weight-norm-light: 350;
