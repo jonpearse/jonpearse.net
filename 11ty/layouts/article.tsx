@@ -5,35 +5,37 @@ import { HumanDate } from '@ui/date';
 import { Calendar, Clock } from '@ui/icons';
 
 export default ( { title, content, date }: EleventyProps ) => (
-	<article class="container -narrow | article">
-		<header>
-			<h1>{title}</h1>
+	<main>
+		<article class="container -narrow | article">
+			<header>
+				<h1>{title}</h1>
 
-			<dl class="flex -wrap">
-				<dt>
-					<Calendar title="Posted on" />
-				</dt>
-				<dd>
-					<HumanDate date={date} />
-				</dd>
+				<dl class="flex -wrap">
+					<dt>
+						<Calendar title="Posted on" />
+					</dt>
+					<dd>
+						<HumanDate date={date} />
+					</dd>
 
-				<dt>
-					<Clock title="Reading time" />
-				</dt>
-				<dd>
-					<ReadingTime content={content} />
-				</dd>
-			</dl>
-		</header>
+					<dt>
+						<Clock title="Reading time" />
+					</dt>
+					<dd>
+						<ReadingTime content={content} />
+					</dd>
+				</dl>
+			</header>
 
-		<div class="prose">
-			{content}
-		</div>
-	</article>
+			<div class="prose">
+				{content}
+			</div>
+		</article>
+	</main>
 );
 
 export const data = () => ( {
-	layout: 'main',
+	layout: 'base',
 } );
 
 // --------------------------------------------------------------------------
