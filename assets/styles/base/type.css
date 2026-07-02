@@ -36,7 +36,7 @@ h1, h2, h3, .as-h1, .as-h2, .as-h3 {
 }
 
 h1, .as-h1 {
-	margin-block-end: 1rlh;
+	margin-block-end: utopia.clamp(32, 80, 480, 1160);
 	font-size: var(--font-primary);
 }
 h2, .as-h2 { font-size: var(--font-secondary); }
