@@ -8,6 +8,7 @@ import syntaxHighlight from '@11ty/eleventy-plugin-syntaxhighlight';
 import EleventyVitePlugin from '@11ty/eleventy-plugin-vite';
 
 import bindTransforms from '@/transforms/index';
+import postcssConfig from '../postcss/index.config';
 
 /** --- PATHS --- */
 
@@ -43,6 +44,9 @@ export default async config =>
 				cssMinify: false,
 			},
 			publicDir: '_public',
+			css: {
+				postcss: postcssConfig,
+			},
 		},
 	} );
 	config.addPassthroughCopy( {

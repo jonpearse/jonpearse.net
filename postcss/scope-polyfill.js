@@ -1,8 +1,3 @@
-import cssnano from 'cssnano';
-import nesting from 'postcss-nesting';
-import size from 'postcss-size';
-import utopia from 'postcss-utopia';
-
 /**
  * PostCSS plugin to add vague support for css-cascade-6 @scope rules. This is very much a work in progress and is
  * subject to change as the underlying proposal changes, but it’s an interesting exercise in skating to where the puck
@@ -14,7 +9,7 @@ import utopia from 'postcss-utopia';
  * - @scope will have higher precedence when supported natively than this polyfill allows. I *could* mess around with
  *  `[class]` hacks but that way madness lies, so such shenanigans are left as an exercise to the user.
  */
-const scopePolyfill = {
+export default {
 	postcssPlugin: 'css-cascade-6 scope polyfill',
 	AtRule: {
 		scope: decl =>
@@ -49,14 +44,4 @@ const scopePolyfill = {
 			decl.replaceWith( { selector: rootScope, nodes: decl.nodes } );
 		},
 	},
-};
-
-export default {
-	plugins: [
-		scopePolyfill,
-		size,
-		nesting,
-		utopia,
-		cssnano,
-	],
 };
