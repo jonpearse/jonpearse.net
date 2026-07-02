@@ -25,7 +25,7 @@ ul.plain {
 /* ========================================================================== */
 .container {
 	/* Stretch padding from 20px@480w to 80px@1160w */
-	--inline-padding: utopia.clamp(20, 80, 480, 1160);
+	--inline-padding: utopia-clamp(20, 80, 480, 1160);
 
 	margin-inline: auto;
 	inline-size: min(

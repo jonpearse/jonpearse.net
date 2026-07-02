@@ -8,7 +8,7 @@
 
 @scope (.prose) {
 	:scope {
-		--pulled-inline-padding: utopia.clamp(16, 64, 480, 1160);
+		--pulled-inline-padding: utopia-clamp(16, 64, 480, 1160);
 
 		--pulled-bg: rgb(0, 0, 0, .1);
 		--table-border-color: rgba(255, 255, 255, .15);

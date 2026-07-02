@@ -58,7 +58,7 @@ body {
 }
 
 main {
-	--block-padding: utopia.clamp(32, 64, 480, 960);
+	--block-padding: utopia-clamp(32, 64, 480, 960);
 
 	flex: 1;
 	padding-block-start: var(--block-padding);
