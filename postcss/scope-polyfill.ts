@@ -9,15 +9,17 @@
  * - @scope will have higher precedence when supported natively than this polyfill allows. I *could* mess around with
  *  `[class]` hacks but that way madness lies, so such shenanigans are left as an exercise to the user.
  */
+import type { AtRule, ChildNode, Plugin } from 'postcss';
+
 export default {
 	postcssPlugin: 'css-cascade-6 scope polyfill',
 	AtRule: {
-		scope: decl =>
+		scope: ( decl: AtRule ) =>
 		{
 			const match = decl.params.match( /\((.*?)\)( to \((.*?)\))?/i );
 			if ( match === null )
 			{
-				return decl;
+				return;
 			}
 
 			if ( match[3] !== undefined )
@@ -25,18 +27,18 @@ export default {
 				console.warn( 'Found ‘to’ constraint in @scope rule: this is ignored for now' );
 			}
 
-			const rootScope = match[1];
+			const rootScope: string = match[1];
 
 			// ‘:scope’ directly inside @scope refers to the scope root — once everything’s nested
 			// under a plain rule below, that’s exactly what ‘&’ means at this level
-			decl.each( child =>
+			decl.each( ( child: ChildNode ) =>
 			{
-				if ( !child.selectors )
+				if ( child.type !== 'rule' )
 				{
-					return child;
+					return;
 				}
 
-				child.selectors = child.selectors.map( selector =>
+				child.selectors = child.selectors.map( ( selector: string ) =>
 					selector.startsWith( ':scope' ) ? selector.replace( ':scope', '&' ) : selector
 				);
 			} );
@@ -44,4 +46,4 @@ export default {
 			decl.replaceWith( { selector: rootScope, nodes: decl.nodes } );
 		},
 	},
-};
+} satisfies Plugin;

@@ -10,30 +10,35 @@
 import CSSValueParser from 'postcss-value-parser';
 import { calculateClamp } from 'utopia-core';
 
+import type { Declaration, Plugin } from 'postcss';
+import type { FunctionNode, Node } from 'postcss-value-parser';
+
 export default {
 	postcssPlugin: 'utopia-revised',
-	Declaration( decl )
+	Declaration( decl: Declaration )
 	{
 		// The faster way to find Declaration node
 		const parsedValue = CSSValueParser( decl.value );
 
-		let valueChanged = false;
-		parsedValue.walk( node =>
+		let valueChanged: boolean = false;
+		parsedValue.walk( ( node: Node ): boolean | undefined =>
 		{
 			if ( node.type !== 'function' || node.value !== 'utopia-clamp' )
 			{
 				return;
 			}
 
-			let [ minSize, maxSize, minWidth, maxWidth ] = node.nodes.filter( x => x.type === 'word' ).map( x => x.value )
+			let [ minSize, maxSize, minWidth, maxWidth ]: Array<number> = node.nodes
+				.filter( x => x.type === 'word' )
+				.map( x => x.value )
 				.map( Number );
 			if ( !minSize || !maxSize || !minWidth || !maxWidth ) return false;
 
 			// Generate clamp
-			const clamp = calculateClamp( { minSize, maxSize, minWidth, maxWidth } );
+			const clamp: string = calculateClamp( { minSize, maxSize, minWidth, maxWidth } );
 
 			// Convert back PostCSS nodes
-			const { nodes: [ { nodes } ] } = CSSValueParser( clamp );
+			const { nodes } = CSSValueParser( clamp ).nodes[0] as FunctionNode;
 
 			node.value = 'clamp';
 			node.nodes = nodes;
@@ -44,7 +49,7 @@ export default {
 
 		if ( valueChanged )
 		{
-			decl.value = CSSValueParser.stringify( parsedValue );
+			decl.value = CSSValueParser.stringify( parsedValue.nodes );
 		}
 	},
-};
+} satisfies Plugin;
