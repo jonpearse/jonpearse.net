@@ -7,8 +7,10 @@ export const Preview = ( { data, url, date }: Page ) => (
 			<h2>
 				<a href={url}>{data.title}</a>
 			</h2>
-			<HumanDate date={date} />
+			<HumanDate date={date} className="as-small" />
 		</header>
-		<p>{data.description}</p>
+		<div class="body">
+			<p>{data.description}</p>
+		</div>
 	</article>
 );

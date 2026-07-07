@@ -53,7 +53,7 @@ p {
 
 strong { font-weight: var(--weight-semi); }
 em { font-style: italic; }
-small { font-size: var(--font-small); }
+small, .as-small { font-size: var(--font-small); }
 
 pre, code, tt {
 	font-family: var(--tf-mono);
