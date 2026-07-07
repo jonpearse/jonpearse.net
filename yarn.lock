@@ -1533,6 +1533,7 @@ __metadata:
     luxon: "npm:^3.7.2"
     node-html-parser: "npm:^8.0.4"
     postcss: "npm:^8.5.16"
+    postcss-merge-at-rules: "npm:^2.0.0"
     postcss-nesting: "npm:^14.0.0"
     postcss-value-parser: "npm:^4.2.0"
     reading-time: "npm:^1.5.0"
@@ -2101,6 +2102,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"postcss-merge-at-rules@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "postcss-merge-at-rules@npm:2.0.0"
+  dependencies:
+    sort-css-media-queries: "npm:2.2.0"
+  peerDependencies:
+    postcss: ^8.4.38
+  checksum: 10c0/d39949cd6840e8d4df75d78dd8d1103e856c6b1e551d80d58b47398493eebfdb161079778a02fc4178f0d01e4217ad99bc61c4a4d25bb99c74a65177d684e935
+  languageName: node
+  linkType: hard
+
 "postcss-merge-longhand@npm:^8.0.1":
   version: 8.0.1
   resolution: "postcss-merge-longhand@npm:8.0.1"
@@ -2591,6 +2603,13 @@ __metadata:
   version: 1.6.9
   resolution: "slugify@npm:1.6.9"
   checksum: 10c0/8473c566ae00c5db26bfbf6182a4a9478ab3c912a9c926e1fdb410736a77228bfca4fdc5c755b46fafa7d2d9900de482fd7a9bd5e5c91128c4743c2c072d88da
+  languageName: node
+  linkType: hard
+
+"sort-css-media-queries@npm:2.2.0":
+  version: 2.2.0
+  resolution: "sort-css-media-queries@npm:2.2.0"
+  checksum: 10c0/7478308c7ca93409f959ab993d41de2f0515ed5f51b671908ecb777aae0d63be97b454d59d80e14ee4874884618a2e825d4ae7ccb225779276904dd175f4e766
   languageName: node
   linkType: hard
 
