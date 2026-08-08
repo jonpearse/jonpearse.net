@@ -1,5 +1,9 @@
 @scope (.footer) {
-	:scope { padding-block: .75rem; }
+	--padding: .75rem;
+	:scope {
+		padding-block: var(--padding)
+			max(env(safe-area-inset-bottom, 0), var(--padding));
+	}
 
 	p {
 		font-size: var(--font-small);
